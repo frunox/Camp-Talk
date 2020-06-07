@@ -17,7 +17,18 @@ var commentRoutes = require("./routes/comments"),
 	campgroundRoutes = require("./routes/campgrounds"),
 	indexRoutes = require("./routes/index");
 
-mongoose.connect("mongodb://localhost/camp_talk", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+const PORT = process.env.PORT || 3000;
+
+// Connect to the Mongo DB (camp_talk)
+mongoose.connect(
+	process.env.MONGODB_URI || "mongodb://localhost/camp_talk",
+	{
+		useCreateIndex: true,
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	}
+);
+// mongoose.connect("mongodb://localhost/camp_talk", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 // mongoose.connect('mongodb+srv://jcannon:22spinect@cluster0-7v1tx.mongodb.net/yelp_camp?retryWrites=true&w=majority', {
 // 	useUnifiedTopology: true,
 // 	useNewUrlParser: true,
@@ -62,6 +73,9 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 // app.listen(process.env.PORT, process.env.IP);
-app.listen(3000, (req, res) => {
-	console.log("Camp-Talk Server Running");
-});
+// app.listen(3000, (req, res) => {
+// 	console.log("Camp-Talk Server Running");
+// });
+app.listen(PORT, () =>
+	console.log(`🌎  ==> Camp Talk now listening on PORT ${PORT}!`)
+);
