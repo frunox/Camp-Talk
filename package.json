@@ -1,7 +1,7 @@
 {
-  "name": "yelp_camp_v1",
+  "name": "camp-talk",
   "version": "1.0.0",
-  "description": "First phase of Yelp Camp project",
+  "description": "Yelp-like campground discussion app",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

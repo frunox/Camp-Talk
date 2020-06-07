@@ -14,20 +14,20 @@ router.get("/", (req, res) => {
 // AUTH ROUTES
 // show register form
 router.get("/register", (req, res) => {
-	res.render("register", {page: "register"});
+	res.render("register", { page: "register" });
 });
 
 // hondle signup logic
 router.post("/register", (req, res) => {
-	var newUser = new User({username: req.body.username});
-	User.register(newUser, req.body.password, (err, user)=>{
+	var newUser = new User({ username: req.body.username });
+	User.register(newUser, req.body.password, (err, user) => {
 		// use flash to display error. err is an object that includes key message:
-		if(err){
+		if (err) {
 			console.log(err);
-			return res.render("register", {error: err.message});
+			return res.render("register", { error: err.message });
 		}
-		passport.authenticate("local")(req, res, ()=>{
-			req.flash("success", "Welcome to Yelpcamp " + user.username);
+		passport.authenticate("local")(req, res, () => {
+			req.flash("success", "Welcome to Camp Talk " + user.username);
 			res.redirect("/campgrounds");
 		});
 	});
@@ -35,24 +35,24 @@ router.post("/register", (req, res) => {
 
 // LOGIN ROUTES - need 2, a GET and a POST
 // show login form
-router.get("/login", function(req, res){
-	res.render("login", {page: "login"});
+router.get("/login", function (req, res) {
+	res.render("login", { page: "login" });
 });
 
 // handling login logic including middleware (passport.authentication())
-router.post("/login", passport.authenticate("local", 
+router.post("/login", passport.authenticate("local",
 	{
 		successRedirect: "/campgrounds",
 		failureRedirect: "/login"
-	}), function(req, res){
-	
-});
+	}), function (req, res) {
+
+	});
 
 // LOGOUT route (V11 add flash message)
 router.get("/logout", (req, res) => {
-   req.logout();
-   req.flash("success", "You are logged out");
-   res.redirect("/campgrounds");
+	req.logout();
+	req.flash("success", "You are logged out");
+	res.redirect("/campgrounds");
 });
 
 module.exports = router;
