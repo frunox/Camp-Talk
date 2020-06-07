@@ -6,9 +6,13 @@ A Yelp-like application to provide discussion of favorite campgrounds, with comm
 
 ## Getting Started
 
-This application was originally developed on goorm-ide.
+This application was originally developed on goorm-ide, and was transferred to GitHub after thet original deployment. Recent updates are reflected in the Github repository.
 
 The Github repository holds the code as deployed.
+
+To use:
+
+- Clone the repository
 
 ## Prerequisites
 

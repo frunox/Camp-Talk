@@ -19,6 +19,7 @@ var commentRoutes = require("./routes/comments"),
 
 const PORT = process.env.PORT || 3000;
 
+// var MONGODB_URI = process.env.MONGODB_URI ||
 // Connect to the Mongo DB (camp_talk)
 mongoose.connect(
 	process.env.MONGODB_URI || "mongodb://localhost/camp_talk",
