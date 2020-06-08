@@ -20,7 +20,7 @@ var commentRoutes = require("./routes/comments"),
 const PORT = process.env.PORT || 3000;
 
 // var MONGODB_URI = process.env.MONGODB_URI ||
-// Connect to the Mongo DB (camp_talk)
+// Connect to the Mongo DB (camp_talk) in both the production and development environments
 mongoose.connect(
 	process.env.MONGODB_URI || "mongodb://localhost/camp_talk",
 	{
@@ -29,22 +29,13 @@ mongoose.connect(
 		useUnifiedTopology: true,
 	}
 );
-// mongoose.connect("mongodb://localhost/camp_talk", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
-// mongoose.connect('mongodb+srv://jcannon:22spinect@cluster0-7v1tx.mongodb.net/yelp_camp?retryWrites=true&w=majority', {
-// 	useUnifiedTopology: true,
-// 	useNewUrlParser: true,
-// 	useCreateIndex: true,
-// 	useFindAndModify: false
-// });
-// use ENV variable DATABASEURL
-// mongoose.connect(process.env.DATABASEURL);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
-// Schema setup, mow in /models/campgrounds.js
+// Schema setup, now in /models/campgrounds.js
 
 // seedDB();  // run seeds.js to clear db and add default data
 
@@ -72,11 +63,7 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-
-// app.listen(process.env.PORT, process.env.IP);
-// app.listen(3000, (req, res) => {
-// 	console.log("Camp-Talk Server Running");
-// });
+// set the app to listen to the defined port
 app.listen(PORT, () =>
 	console.log(`🌎  ==> Camp Talk now listening on PORT ${PORT}!`)
 );
