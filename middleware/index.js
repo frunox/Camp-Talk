@@ -5,23 +5,23 @@ var Comment = require("../models/comment");
 // all middleware code in this file
 var middlewareObj = {};
 
-middlewareObj.checkCampgroundOwnership = function(req, res, next) {
-	if(req.isAuthenticated()){
+middlewareObj.checkCampgroundOwnership = function (req, res, next) {
+	if (req.isAuthenticated()) {
 		Campground.findById(req.params.id, (err, foundCampground) => {
 			// add handling of null campground error || !foundCampground
-			if(err || !foundCampground){
+			if (err || !foundCampground) {
 				req.flash("error", "Campground not found");
 				res.redirect("back");
 			} else {
 				// does user own campground?
-				if(foundCampground.author.id.equals(req.user.id)) {
+				if (foundCampground.author.id.equals(req.user.id)) {
 					next();
 				} else {
 					req.flash("error", "You don't have permission to do that");
 					res.redirect("back");
 				}
 			}
-		});	
+		});
 	} else {
 		// redirect back to previous page. V11 - add flash message
 		req.flash("error", "You need to be logged in to do that");
@@ -29,23 +29,23 @@ middlewareObj.checkCampgroundOwnership = function(req, res, next) {
 	}
 }
 
-middlewareObj.checkCommentOwnership = function(req, res, next) {
-	if(req.isAuthenticated()){
+middlewareObj.checkCommentOwnership = function (req, res, next) {
+	if (req.isAuthenticated()) {
 		Comment.findById(req.params.comment_id, (err, foundComment) => {
 			// add flash message on err
-			if(err || !foundComment){
+			if (err || !foundComment) {
 				req.flash("error", "Comment not found");
 				res.redirect("back");
 			} else {
 				// does user own comment?
-				if(foundComment.author.id.equals(req.user.id)) {
+				if (foundComment.author.id.equals(req.user.id)) {
 					next();
 				} else {
 					req.flash("error", "You don't have permission to do that");
 					res.redirect("back");
 				}
 			}
-		});	
+		});
 	} else {
 		// add flash message
 		req.flash("error", "Please Log In First");
@@ -54,9 +54,10 @@ middlewareObj.checkCommentOwnership = function(req, res, next) {
 	}
 }
 
-middlewareObj.isLoggedIn = function(req, res, next){
-	if(req.isAuthenticated()){
-	   	return next();
+// check is user is logged in.  next() allows subsequent callback function to execute
+middlewareObj.isLoggedIn = function (req, res, next) {
+	if (req.isAuthenticated()) {
+		return next();
 	}
 	// add flash message
 	req.flash("error", "Please Log In");

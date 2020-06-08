@@ -7,6 +7,7 @@ var passport = require("passport");
 var User = require("../models/user");
 
 //  Root route, replace 'app' with 'router'
+// start on landing page (landing.ejs)
 router.get("/", (req, res) => {
 	res.render("landing");
 });
@@ -17,7 +18,7 @@ router.get("/register", (req, res) => {
 	res.render("register", { page: "register" });
 });
 
-// hondle signup logic
+// handle signup logic
 router.post("/register", (req, res) => {
 	var newUser = new User({ username: req.body.username });
 	User.register(newUser, req.body.password, (err, user) => {
