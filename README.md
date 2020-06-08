@@ -6,13 +6,18 @@ A Yelp-like application to provide discussion of favorite campgrounds, with comm
 
 ## Getting Started
 
-This application was originally developed on goorm-ide, and was transferred to GitHub after thet original deployment. Recent updates are reflected in the Github repository.
+This application was originally developed on goorm-ide, and was transferred to GitHub after the original deployment. Recent updates are reflected in the Github repository.
 
 The Github repository holds the code as deployed.
 
 To use:
 
 - Clone the repository
+- Run npm install
+- Type "node app.js" to run from the command line
+- In local environmental, browse to 'localhost:3000'
+
+This application is deployed on heroku at: https://camp-talk.herokuapp.com
 
 ## Prerequisites
 
@@ -26,49 +31,32 @@ This application is built using:
 - Passport-local-mongoose
 - Connect-flash (for flash error messages)
 
-Installing
-A step by step series of examples that tell you how to get a development env running
+## Usage
 
-Say what the step will be
+Camp Talk opens to a landing page with a slideshow of campsite images.
 
-Give the example
-And repeat
+<img src="public\images\camp-talk-landing.png" alt="camp talk landing page">
 
-until finished
-End with an example of getting some data out of the system or using it for a little demo
+The user then proceeds to the home page.
+<img src="public\images\camp-talk-home.png" alt="camp talk home page">
 
-Running the tests
-Explain how to run the automated tests for this system
+The must sign up, or log in if already registered.
+<img src="public\images\camp-talk-signin.png" alt="camp talk sign-in page">
 
-Break down into end to end tests
-Explain what these tests test and why
+After sign-up/log in, the user is directed back to the home page, where camp sites may be viewed or added. The campground can only be deleted, or have the description edited, by the user that created it. Comments can be added to any site by any user.
+<img src="public\images\camp-talk-cg-comment.png" alt="camp talk sign-in page">
 
-Give an example
-And coding style tests
-Explain what these tests test and why
+Comments can be edited or deleted by the user who created them.
 
-Give an example
-Deployment
-Add additional notes about how to deploy this on a live system
+## Deployment
 
-Built With
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+The app is ready for deployment to heroku. The code in server.js is written to allow the app to run in both a local environment and in a production environment on heroku. Add mLab as a resource to host the production version of the Mongo database.
 
-Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
+### Author
 
-Authors
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
+John Cannon  
+<a href="https://github.com/frunox/" alt="John Cannon's GitHub Projects">John's GitHub Projects</a>
 
-License
-This project is licensed under the MIT License - see the LICENSE.md file for details
+### License
 
-Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc
+This source code is available under the standard <a href="https://opensource.org/licenses/MIT">MIT license</a>
