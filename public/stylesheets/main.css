@@ -31,3 +31,8 @@
 a {
   color: white;
 }
+
+/* Campground show page */
+a.siteLink {
+  color: blue;
+}
