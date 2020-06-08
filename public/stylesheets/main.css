@@ -13,3 +13,21 @@
 .delete-form {
   display: inline;
 }
+
+/* NAVBAR */
+.navbar-default {
+  background-color: green;
+  border-color: black;
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+}
+
+a {
+  color: white;
+}
