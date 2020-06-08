@@ -25,7 +25,7 @@ This application is built using:
 
 - Node.js
 - Express.js
-- MongDB and Mongoose
+- MongoDB and Mongoose
 - Ejs
 - Passport and Passport-local
 - Passport-local-mongoose
