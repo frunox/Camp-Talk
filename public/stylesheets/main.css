@@ -17,7 +17,8 @@
 /* NAVBAR */
 .navbar-default {
   background-color: green;
-  border-color: black;
+  border-color: green;
+  border-radius: 0;
 }
 
 .navbar-default .navbar-brand {
