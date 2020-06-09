@@ -19,6 +19,7 @@
   background-color: green;
   border-color: green;
   border-radius: 0;
+  margin: 0;
 }
 
 .navbar-default .navbar-brand {
@@ -36,4 +37,8 @@ a {
 /* Campground show page */
 a.siteLink {
   color: blue;
+}
+
+.showContainer {
+  margin-top: 20px;
 }
