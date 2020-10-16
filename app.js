@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 3000;
 // var MONGODB_URI = process.env.MONGODB_URI ||
 // Connect to the Mongo DB (camp_talk) in both the production and development environments
 mongoose.connect(
-	process.env.MONGODB_URI || "mongodb://localhost/camp_talk",
+	process.env.MONGODB_URI || 'mongodb+srv://fruno1:2u60mrZF6POGPGJK@cluster0-7v1tx.mongodb.net/camps',
 	{
 		useCreateIndex: true,
 		useNewUrlParser: true,
